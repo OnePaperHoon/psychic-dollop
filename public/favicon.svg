@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- PALETTE: void #08060f / ecto #ff2e97 — 격리 챔버 속 돌롭 -->
+  <defs>
+    <radialGradient id="goo" cx="38%" cy="30%" r="78%">
+      <stop offset="0%" stop-color="#ff9ecb"/>
+      <stop offset="32%" stop-color="#ff2e97"/>
+      <stop offset="100%" stop-color="#8f1054"/>
+    </radialGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#08060f"/>
+  <path d="M33 9c11-1.5 22 6 23.5 17.5S52 51 39 54.5 12.5 52 9.5 39 14 13 24 10.5c3-.8 6-1.1 9-1.5z"
+        fill="#ff2e97" opacity=".55" filter="url(#glow)"/>
+  <path d="M33 9c11-1.5 22 6 23.5 17.5S52 51 39 54.5 12.5 52 9.5 39 14 13 24 10.5c3-.8 6-1.1 9-1.5z"
+        fill="url(#goo)"/>
+  <ellipse cx="26" cy="22" rx="7.5" ry="5.5" fill="#ffffff" opacity=".8" transform="rotate(-18 26 22)"/>
+</svg>
