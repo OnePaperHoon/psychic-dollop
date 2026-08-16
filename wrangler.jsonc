@@ -1,0 +1,12 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "psychic-dollop",
+  "compatibility_date": "2026-08-01",
+  "assets": {
+    "directory": "./dist"
+  },
+  // 커스텀 도메인 방식 — DNS 레코드 자동 생성 (대시보드 Routes 혼용 금지)
+  "routes": [
+    { "pattern": "psychicdollop.com", "custom_domain": true }
+  ]
+}

@@ -11,7 +11,9 @@
 
 - **React 18 + Vite 6** (`src/` 분리 구조, entry `src/main.jsx` → `PsychicDollop` mount)
 - 스타일은 별도 CSS 파일 없이 `src/styles.js`의 `css` 문자열 → `<style>` 주입 (CSS 변수 기반)
-- **배포: Cloudflare Pages** (정적 빌드, 프로젝트명 `psychic-dollop` → psychic-dollop.pages.dev)
+- **배포: Cloudflare Workers** (Static Assets, Worker명 `psychic-dollop` → **psychicdollop.com**).
+  `wrangler.jsonc`의 routes `custom_domain: true` 방식 — DNS 자동 생성, 대시보드 Routes 혼용 금지.
+  main push → GitHub Actions → `wrangler deploy` 자동 배포
 - 외부 의존성: 폰트 `VT323`만 Google Fonts `@import` (실패 시 monospace 폴백 → 렌더 지장 없음)
 
 빌드 셋업을 붙일 때는 Vite + React 최소 구성으로:
