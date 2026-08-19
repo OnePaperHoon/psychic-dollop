@@ -42,8 +42,17 @@ projects/
 
 ## 데이터 모델 — 표본 추가법
 
-표본 하나 = `projects/<이름>/specimen.js` 폴더 하나. `src/data/specimens.js`가
-`import.meta.glob`으로 자동 스캔하므로 **폴더만 추가하면 등록 끝** (id 순 정렬).
+**표본 정보의 소스는 각 표본 레포의 `specimen.json`이다** (MyLab/<이름> 레포 루트).
+`projects/<이름>/specimen.js`는 `scripts/collect-specimens.mjs`가 GitHub에서
+토픽 `psychic-specimen` 레포들을 수집해 만드는 **생성물**이므로 직접 수정 금지.
+
+- 새 표본 등록: 표본 레포에 `specimen.json` 커밋 + 레포 토픽 `psychic-specimen` 추가 → 끝
+- 배포 게이트: specimen.json의 `"deploy": false`면 표본 CI가 배포를 건너뛰고,
+  아카이브도 launch를 비워 "미배포" 처리. 완성되면 `true`로 바꿔 push
+- 갱신 경로: 표본 레포 push → 표본 CI가 (게이트 통과 시) `<이름>.psychicdollop.com`
+  배포 → `repository_dispatch`(specimen-update)로 이 레포 재빌드 → 자동 수집·반영
+- 로컬 수집: `npm run collect` (GITHUB_TOKEN 권장). 커밋된 projects/*는 폴백 스냅샷
+- `src/data/specimens.js`의 `import.meta.glob` 자동 스캔·id 정렬은 그대로
 
 ```js
 // projects/my-experiment/specimen.js
@@ -112,6 +121,7 @@ export default {
 ## 로드맵 (열린 방향)
 
 - [x] 표본 데이터 폴더 구조로 분리 (`projects/*/specimen.js` 자동 스캔)
+- [x] 표본 레포 자동 수집 파이프라인 (specimen.json + 토픽 + dispatch + 배포 게이트)
 - [ ] 웹 표본 코드를 `projects/<이름>/`에 두고 빌드 시 `dist/p/<이름>/`으로 합쳐 같은 도메인 서빙
 - [ ] 표본별 라우트/딥링크 (`?s=CODENAME` 또는 해시)
 - [ ] 돌롭을 Canvas/WebGL 메타볼로 강화 (진짜 점액질)

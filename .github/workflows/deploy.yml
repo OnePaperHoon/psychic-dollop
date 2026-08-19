@@ -3,6 +3,9 @@ name: Deploy to Cloudflare Workers
 on:
   push:
     branches: [main]
+  # 표본 레포가 push 시 이 이벤트로 아카이브 재빌드를 트리거한다
+  repository_dispatch:
+    types: [specimen-update]
   workflow_dispatch:
 
 jobs:
@@ -17,6 +20,11 @@ jobs:
           cache: npm
 
       - run: npm ci
+
+      # 표본 레포들의 specimen.json 수집 → projects/ 생성
+      - run: node scripts/collect-specimens.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - run: npm run build
 

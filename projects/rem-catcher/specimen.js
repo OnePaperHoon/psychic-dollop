@@ -1,3 +1,5 @@
+// 자동 생성 파일 — 수정 금지. 소스: github.com/OnePaperHoon/rem-catcher/specimen.json
+// 갱신: npm run collect (CI는 빌드마다 자동 실행)
 import { PALETTE } from "../../src/theme.js";
 
 export default {
@@ -6,9 +8,14 @@ export default {
   tag: "브라우저 안의 꿈 기록 장치",
   status: "QUARANTINE",
   kind: "web",
-  hue: PALETTE.hazard,
+  hue: PALETTE["hazard"] ?? PALETTE.ecto,
   desc: "잠들기 직전 남긴 단어들을 밤새 재조립한다. 아침에 열어보면 당신이 쓰지 않은 문장들이 저장되어 있다. 격리 사유: 출처 불명.",
-  vitals: { load: 41, entropy: 0.77, visc: 63 },
-  tags: ["journal", "dream", "local"],
-  links: { launch: null, repo: null },
+  vitals: {"load":41,"entropy":0.77,"visc":63},
+  tags: ["journal","dream","local"],
+  links: {
+    "launch": null,
+    "download": null,
+    "repo": "https://github.com/OnePaperHoon/rem-catcher",
+    "npm": null
+  },
 };

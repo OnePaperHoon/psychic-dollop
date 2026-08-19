@@ -1,3 +1,5 @@
+// 자동 생성 파일 — 수정 금지. 소스: github.com/OnePaperHoon/null-garden/specimen.json
+// 갱신: npm run collect (CI는 빌드마다 자동 실행)
 import { PALETTE } from "../../src/theme.js";
 
 export default {
@@ -6,9 +8,14 @@ export default {
   tag: "아무도 안 볼 때만 자라는 정원",
   status: "DORMANT",
   kind: "web",
-  hue: PALETTE.ghost,
+  hue: PALETTE["ghost"] ?? PALETTE.ecto,
   desc: "탭을 활성화하는 순간 성장이 멈춘다. 방문하지 않을수록 무성해진다. 관찰이 곧 죽음인 표본. 지금 이 순간에도 휴면 상태로 판정됨.",
-  vitals: { load: 8, entropy: 0.12, visc: 96 },
-  tags: ["ambient", "idle", "garden"],
-  links: { launch: null, repo: null },
+  vitals: {"load":8,"entropy":0.12,"visc":96},
+  tags: ["ambient","idle","garden"],
+  links: {
+    "launch": null,
+    "download": null,
+    "repo": "https://github.com/OnePaperHoon/null-garden",
+    "npm": null
+  },
 };
